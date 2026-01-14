@@ -1,164 +1,292 @@
-/* --- MASTER DESIGN SYSTEM --- */
+/* =========================================
+   1. SETUP VARIABILI E RESET
+   ========================================= */
 :root {
     --primary: #2d6a4f;    /* Verde foresta */
-    --accent: #d4a373;     /* Oro */
+    --accent: #d4a373;     /* Oro/Terra */
     --dark: #1b4332;       /* Verde scuro */
     --light: #f8f9fa;      /* Grigio chiaro */
     --text: #2b2d42;       /* Testo scuro */
-    --white: #ffffff;
-    --shadow-lg: 0 10px 30px rgba(0,0,0,0.15);
+    --white: #ffffff;      /* Bianco */
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-body { font-family: 'Lato', sans-serif; color: var(--text); line-height: 1.7; background: var(--white); overflow-x: hidden; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-/* --- NAVBAR (Header) --- */
+body {
+    background-color: var(--light);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+a { text-decoration: none; }
+ul { list-style: none; }
+
+/* =========================================
+   2. NAVIGAZIONE (Desktop Default)
+   ========================================= */
 .navbar {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 20px 5%; width: 100%; position: absolute; top: 0; left: 0; z-index: 1000;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent); /* Sfumatura per leggibilità */
-}
-.logo { font-size: 1.6rem; font-weight: 700; color: var(--white); z-index: 1001; }
-.logo span { color: var(--accent); }
-
-/* --- HAMBURGER MENU (Logica corretta) --- */
-#menu-toggle { display: none; } /* Checkbox nascosto */
-
-.hamburger {
-    display: none; /* Nascosto su PC */
-    cursor: pointer;
-    flex-direction: column;
+    background-color: var(--dark);
+    padding: 1rem 2rem;
+    display: flex;
     justify-content: space-between;
-    width: 30px;
-    height: 21px; /* Altezza calcolata per 3 linee + margini */
-    z-index: 1002; /* Sopra tutto */
-}
-.hamburger span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background: var(--white);
-    border-radius: 3px;
-    transition: all 0.3s ease-in-out;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
 }
 
-/* --- LINKS DI NAVIGAZIONE --- */
-.nav-links { list-style: none; display: flex; gap: 25px; align-items: center; }
-.nav-links a { text-decoration: none; color: var(--white); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-.nav-links a:hover, .nav-links a.active { color: var(--accent); }
-
-/* Bottone Navbar */
-.nav-btn { 
-    border: 2px solid var(--accent); padding: 8px 18px; border-radius: 50px; transition: 0.3s; 
+.logo {
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
-.nav-btn:hover { background: var(--accent); color: var(--dark) !important; box-shadow: 0 0 15px rgba(212, 163, 115, 0.6); }
 
-/* --- HERO SECTIONS --- */
-.hero, .hero-small { 
-    position: relative; color: var(--white); text-align: center; 
-    display: flex; align-items: center; justify-content: center; 
+.nav-links {
+    display: flex;
+    gap: 20px;
 }
-.hero { height: 100vh; background: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2070') center/cover fixed no-repeat; }
-.hero-small { height: 50vh; background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat; }
 
-/* Sfondi Pagine Interne */
-.mission-bg { background-image: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=2070'); }
-.esg-hero, .data-bg { background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015'); }
-
-.overlay { background: rgba(0,0,0,0.4); width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; padding-top: 60px; }
-
-/* Animazione Titoli */
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-.fade-in-up, .hero-content h1, .hero-small h1 { animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-
-/* --- BOTTONI E CARDS --- */
-.cta-main {
-    background: var(--accent); color: var(--white); padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-top: 30px; display: inline-block;
-    box-shadow: 0 4px 15px rgba(212, 163, 115, 0.4); transition: 0.3s;
+.nav-links a {
+    color: var(--white);
+    font-weight: 500;
+    transition: color 0.3s;
 }
-.cta-main:hover { transform: translateY(-3px); background: #c5925e; box-shadow: 0 8px 25px rgba(212, 163, 115, 0.6); }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-.section-padding { padding: 80px 0; }
-.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-
-.feature-card, .data-card { 
-    background: white; padding: 40px; border-radius: 15px; box-shadow: var(--shadow-lg); text-align: center; transition: 0.3s; border-bottom: 4px solid transparent; 
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent);
 }
-.feature-card:hover, .data-card:hover { transform: translateY(-10px); border-bottom: 4px solid var(--primary); }
-.data-value { font-size: 3rem; font-weight: 700; color: var(--primary); margin: 15px 0; font-family: 'Playfair Display', serif; }
-.icon { font-size: 3rem; margin-bottom: 20px; display: inline-block; }
 
-/* --- DOWNLOAD SECTION --- */
-#download-anchor, #download { background: var(--light); padding: 100px 0; }
-.download-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-.download-box { background: white; padding: 40px; border-radius: 20px; box-shadow: var(--shadow-lg); text-align: center; }
-.file-preview span { font-size: 2.5rem; font-weight: 900; color: #e74c3c; border: 4px solid #e74c3c; padding: 15px 25px; border-radius: 10px; display: inline-block; margin-bottom: 20px; }
-.btn-download { display: block; background: var(--primary); color: white; padding: 18px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: 0.3s; margin-top: 20px; }
-.btn-download:hover { background: var(--dark); transform: translateY(-2px); }
+/* Checkbox tecnica sempre nascosta */
+#menu-toggle {
+    display: none;
+}
 
-/* Mission & Dashboard Styles */
-.mission-content { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; margin-bottom: 80px; }
-.mission-content img { width: 100%; border-radius: 15px; box-shadow: var(--shadow-lg); }
-.lead { font-size: 1.25rem; font-style: italic; color: var(--primary); border-left: 4px solid var(--accent); padding-left: 20px; margin-bottom: 20px; }
-.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; text-align: center; }
-.value-item { background: var(--light); padding: 30px; border-radius: 10px; transition: 0.3s; }
-.value-item:hover { background: white; box-shadow: var(--shadow-lg); transform: translateY(-5px); }
-.value-item h3 { color: var(--primary); margin-bottom: 15px; }
+/* Icona Hamburger (nascosta su Desktop) */
+.hamburger {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--white);
+}
 
-.data-intro { text-align: center; margin-bottom: 50px; max-width: 800px; margin: 0 auto 60px; }
-.esg-pillar { margin-bottom: 80px; }
-.pillar-header { display: flex; align-items: center; gap: 15px; margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-.pillar-tag { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; color: white; }
-.env { background: #2d6a4f; }
-.soc { background: #e67e22; }
-.gov { background: #2b2d42; }
-.data-table-wrapper { overflow-x: auto; background: white; border-radius: 12px; box-shadow: var(--shadow-lg); }
-.esg-table { width: 100%; border-collapse: collapse; }
-.esg-table th, .esg-table td { padding: 20px; text-align: left; border-bottom: 1px solid #f4f4f4; }
-.esg-table th { background: #f8f9fa; color: var(--dark); font-weight: 700; }
-.esg-table tr:last-child td { border-bottom: none; }
+/* =========================================
+   3. HERO SECTION
+   ========================================= */
+.hero {
+    background: linear-gradient(rgba(27, 67, 50, 0.8), rgba(27, 67, 50, 0.8)), url('https://images.unsplash.com/photo-1625246333195-551e51247289?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); /* Immagine placeholder campo agricolo */
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 20px;
+}
 
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
 
-/* =======================================================
-   MEDIA QUERIES (FIX MENU MOBILE DEFINITIVO)
-   ======================================================= */
-@media (max-width: 992px) {
-    /* 1. Navbar Fissa e Scura */
-    .navbar { background: var(--dark); padding: 15px 5%; position: fixed; }
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    background-color: var(--accent);
+    color: var(--white);
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    background-color: #c5925e;
+}
+
+/* =========================================
+   4. SEZIONE DOWNLOAD (Stile Corporate)
+   ========================================= */
+.download-section {
+    padding: 4rem 2rem;
+    background-color: var(--white);
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-intro {
+    margin-bottom: 30px;
+    color: #666;
+}
+
+/* Disclaimer Box */
+.disclaimer-box {
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--accent);
+    padding: 15px;
+    margin-bottom: 30px;
+    color: #555;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+/* Card del Report */
+.report-card {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribuisce spazio tra icona, info e bottone */
+    gap: 20px;
+    box-shadow: var(--shadow);
+    flex-wrap: wrap; /* Per adattarsi su mobile */
+    text-align: left;
+}
+
+.report-icon .file-type {
+    background: #e63946; /* Rosso PDF */
+    color: white;
+    padding: 12px 18px;
+    font-weight: bold;
+    border-radius: 6px;
+    font-size: 1.2rem;
+}
+
+.report-info {
+    flex: 1; /* Prende tutto lo spazio disponibile */
+}
+
+.report-info h3 {
+    margin: 0 0 5px 0;
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.report-meta {
+    margin: 0 0 10px 0;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.report-security {
+    font-size: 0.85rem;
+    color: var(--dark);
+    display: flex;
+    gap: 15px;
+    font-weight: 600;
+}
+
+.btn-download-primary {
+    background-color: var(--primary);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s;
+    white-space: nowrap; /* Evita che il testo vada a capo */
+}
+
+.btn-download-primary:hover {
+    background-color: var(--dark);
+}
+
+.integrity-note {
+    margin-top: 15px;
+    color: #999;
+}
+
+/* =========================================
+   5. FOOTER
+   ========================================= */
+footer {
+    background-color: var(--dark);
+    color: var(--white);
+    text-align: center;
+    padding: 2rem;
+    margin-top: auto;
+}
+
+/* =========================================
+   6. MEDIA QUERY (Mobile Responsiveness)
+   ========================================= */
+@media screen and (max-width: 768px) {
     
-    /* 2. Mostra Icona Hamburger */
-    .hamburger { display: flex; }
-
-    /* 3. Nascondi Menu Links (Default) */
-    .nav-links {
-        display: none; /* Fondamentale */
-        position: fixed; /* Occupa tutto lo schermo */
-        top: 0; left: 0; width: 100%; height: 100vh;
-        flex-direction: column;
-        justify-content: center;
-        background: rgba(27, 67, 50, 0.98); /* Verde quasi opaco */
-        padding: 0;
-        z-index: 1000; /* Sotto l'icona hamburger */
-        opacity: 0;
-        transition: opacity 0.3s ease;
+    .hero-content h1 {
+        font-size: 2rem;
     }
 
-    /* 4. Mostra Menu quando Checkbox è ATTIVO */
+    /* A. Mostra l'icona Hamburger */
+    .hamburger {
+        display: block; 
+    }
+
+    /* B. Nascondi i link di default */
+    .nav-links {
+        display: none; /* Nasconde la lista orizzontale */
+        position: absolute;
+        top: 100%; /* Subito sotto la navbar */
+        left: 0;
+        width: 100%;
+        background-color: var(--dark);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        z-index: 999;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* C. LOGICA DI APERTURA */
     #menu-toggle:checked ~ .nav-links {
         display: flex;
-        opacity: 1;
     }
 
-    /* 5. Animazione Croce (X) Perfetta */
-    #menu-toggle:checked ~ .hamburger span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-    #menu-toggle:checked ~ .hamburger span:nth-child(2) { opacity: 0; }
-    #menu-toggle:checked ~ .hamburger span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-
-    /* Layout Responsive */
-    .download-grid, .mission-content, .values-grid { grid-template-columns: 1fr; text-align: center; }
-    .hero h1, .hero-small h1 { font-size: 2.2rem; }
+    /* Adattamento Card Report su mobile */
+    .report-card {
+        flex-direction: column;
+        text-align: center;
+    }
     
-    /* Disabilita parallasse su mobile per fluidità */
-    .hero, .hero-small { background-attachment: scroll; }
+    .report-info {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .report-security {
+        justify-content: center;
+    }
+    
+    .btn-download-primary {
+        width: 100%;
+        display: block;
+    }
 }
