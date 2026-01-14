@@ -1,5 +1,5 @@
 /* =========================================
-   1. SETUP VARIABILI E RESET
+   1. SETUP VARIABILI E RESET (Brand Identity)
    ========================================= */
 :root {
     --primary: #2d6a4f;    /* Verde foresta */
@@ -49,6 +49,7 @@ ul { list-style: none; }
     letter-spacing: 1px;
 }
 
+/* Stile dei link desktop */
 .nav-links {
     display: flex;
     gap: 20px;
@@ -64,12 +65,13 @@ ul { list-style: none; }
     color: var(--accent);
 }
 
-/* Checkbox tecnica sempre nascosta */
+/* ELEMENTI MOBILE (Nascosti su Desktop) */
+/* Checkbox Hack: input nascosto per gestire lo stato */
 #menu-toggle {
     display: none;
 }
 
-/* Icona Hamburger (nascosta su Desktop) */
+/* Icona Hamburger: nascosta di default su PC */
 .hamburger {
     display: none;
     font-size: 1.8rem;
@@ -78,10 +80,11 @@ ul { list-style: none; }
 }
 
 /* =========================================
-   3. HERO SECTION
+   3. HERO SECTION (Immagine di copertina)
    ========================================= */
 .hero {
-    background: linear-gradient(rgba(27, 67, 50, 0.8), rgba(27, 67, 50, 0.8)), url('https://images.unsplash.com/photo-1625246333195-551e51247289?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); /* Immagine placeholder campo agricolo */
+    /* Immagine con overlay scuro per leggibilità */
+    background: linear-gradient(rgba(27, 67, 50, 0.8), rgba(27, 67, 50, 0.8)), url('https://images.unsplash.com/photo-1625246333195-551e51247289?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
     background-size: cover;
     background-position: center;
     height: 60vh;
@@ -98,14 +101,6 @@ ul { list-style: none; }
     margin-bottom: 1rem;
 }
 
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .cta-button {
     background-color: var(--accent);
     color: var(--white);
@@ -113,6 +108,7 @@ ul { list-style: none; }
     border-radius: 50px;
     font-weight: bold;
     text-transform: uppercase;
+    display: inline-block;
     transition: transform 0.3s ease;
 }
 
@@ -122,7 +118,7 @@ ul { list-style: none; }
 }
 
 /* =========================================
-   4. SEZIONE DOWNLOAD (Stile Corporate)
+   4. SEZIONE DOWNLOAD E CARD (Stile Corporate)
    ========================================= */
 .download-section {
     padding: 4rem 2rem;
@@ -135,12 +131,7 @@ ul { list-style: none; }
     margin: 0 auto;
 }
 
-.section-intro {
-    margin-bottom: 30px;
-    color: #666;
-}
-
-/* Disclaimer Box */
+/* Box Disclaimer Metodologico */
 .disclaimer-box {
     background-color: #f8f9fa;
     border-left: 4px solid var(--accent);
@@ -151,7 +142,7 @@ ul { list-style: none; }
     font-size: 0.9rem;
 }
 
-/* Card del Report */
+/* Card del Report (Layout Flexbox) */
 .report-card {
     background: white;
     border: 1px solid #e9ecef;
@@ -159,36 +150,27 @@ ul { list-style: none; }
     padding: 25px;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Distribuisce spazio tra icona, info e bottone */
     gap: 20px;
     box-shadow: var(--shadow);
-    flex-wrap: wrap; /* Per adattarsi su mobile */
     text-align: left;
+    flex-wrap: wrap; /* Importante per il mobile */
 }
 
 .report-icon .file-type {
-    background: #e63946; /* Rosso PDF */
+    background: #e63946;
     color: white;
-    padding: 12px 18px;
+    padding: 10px 15px;
     font-weight: bold;
-    border-radius: 6px;
-    font-size: 1.2rem;
+    border-radius: 5px;
 }
 
 .report-info {
-    flex: 1; /* Prende tutto lo spazio disponibile */
+    flex: 1; /* Occupa tutto lo spazio disponibile */
 }
 
 .report-info h3 {
-    margin: 0 0 5px 0;
+    margin-bottom: 5px;
     color: var(--primary);
-    font-size: 1.2rem;
-}
-
-.report-meta {
-    margin: 0 0 10px 0;
-    color: #666;
-    font-size: 0.95rem;
 }
 
 .report-security {
@@ -197,26 +179,20 @@ ul { list-style: none; }
     display: flex;
     gap: 15px;
     font-weight: 600;
+    margin-top: 5px;
 }
 
 .btn-download-primary {
     background-color: var(--primary);
     color: white;
     padding: 12px 25px;
-    text-decoration: none;
     border-radius: 6px;
     font-weight: bold;
-    transition: background 0.3s;
-    white-space: nowrap; /* Evita che il testo vada a capo */
+    white-space: nowrap;
 }
 
 .btn-download-primary:hover {
     background-color: var(--dark);
-}
-
-.integrity-note {
-    margin-top: 15px;
-    color: #999;
 }
 
 /* =========================================
@@ -227,7 +203,7 @@ footer {
     color: var(--white);
     text-align: center;
     padding: 2rem;
-    margin-top: auto;
+    margin-top: 50px;
 }
 
 /* =========================================
@@ -235,20 +211,21 @@ footer {
    ========================================= */
 @media screen and (max-width: 768px) {
     
+    /* A. Adattamento testi Hero */
     .hero-content h1 {
         font-size: 2rem;
     }
 
-    /* A. Mostra l'icona Hamburger */
+    /* B. Logica Hamburger Menu (FIX) */
     .hamburger {
-        display: block; 
+        display: block; /* Mostra l'icona solo su mobile */
     }
 
-    /* B. Nascondi i link di default */
     .nav-links {
-        display: none; /* Nasconde la lista orizzontale */
+        display: none; /* Nascondi i link orizzontali */
+        /* Trasformazione in menu a tendina */
         position: absolute;
-        top: 100%; /* Subito sotto la navbar */
+        top: 100%;
         left: 0;
         width: 100%;
         background-color: var(--dark);
@@ -265,28 +242,18 @@ footer {
         text-align: center;
     }
 
-    /* C. LOGICA DI APERTURA */
+    /* C. Checkbox Hack: Quando attiva, mostra il menu */
     #menu-toggle:checked ~ .nav-links {
         display: flex;
     }
 
-    /* Adattamento Card Report su mobile */
+    /* D. Adattamento Card Report */
     .report-card {
         flex-direction: column;
         text-align: center;
     }
     
-    .report-info {
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    .report-security {
-        justify-content: center;
-    }
-    
-    .btn-download-primary {
-        width: 100%;
-        display: block;
-    }
+    .report-info { margin: 10px 0; }
+    .report-security { justify-content: center; }
+    .btn-download-primary { width: 100%; display: block; }
 }
