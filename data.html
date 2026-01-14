@@ -3,72 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BF S.p.A. - Dati ESG</title>
+    <title>BF S.p.A. | Dati ESG e Performance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">BF S.p.A.</div>
+    <header class="hero-small data-bg">
+        <div class="overlay">
+            
+            <nav class="navbar">
+                <div class="logo">BF <span>S.p.A.</span></div>
 
-        <input type="checkbox" id="menu-toggle">
+                <input type="checkbox" id="menu-toggle">
 
-        <label for="menu-toggle" class="hamburger">
-            <span>&#9776;</span>
-        </label>
+                <label for="menu-toggle" class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
 
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="mission.html">Mission</a></li>
-            <li><a href="data.html" class="active">Dati ESG</a></li>
-        </ul>
-    </nav>
-
-    <header class="hero" style="height: 40vh; background-image: linear-gradient(rgba(27,67,50,0.9), rgba(27,67,50,0.9)), url('https://images.unsplash.com/photo-1589923188900-85dae523342b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');">
-        <div class="hero-content">
-            <h1>Performance ESG</h1>
-            <p>Monitoraggio KPI in tempo reale.</p>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="mission.html">Mission</a></li>
+                    <li><a href="data.html" class="active">Dati ESG</a></li>
+                    <li><a href="index.html#download-anchor" class="nav-btn">Area Report</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hero-content">
+                <h1 class="fade-in-up">Performance ESG 2023</h1>
+            </div>
         </div>
     </header>
 
-    <section class="download-section">
-        <div class="container">
-            <p style="margin-bottom: 40px;">Dati estratti dalla Dichiarazione Non Finanziaria 2023.</p>
+    <main class="container section-padding">
+        <section class="data-intro">
+            <h2>KPI Certificati</h2>
+            <p>Analisi delle performance ambientali e sociali estratte dal sistema informativo.</p>
+        </section>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+        <div class="grid-3">
+            <article class="data-card">
+                <span class="pillar-tag env">E</span>
+                <h4>Efficienza Idrica</h4>
+                <div class="data-value">-15.4%</div>
+                <p>Risultato ottenuto tramite l'ottimizzazione degli acquisti e dei processi.</p>
+            </article>
 
-                <article class="report-card" style="display: block;">
-                    <span style="background: var(--primary); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8rem;">AMBIENTE</span>
-                    <h3 style="margin-top: 15px;">Efficienza Idrica</h3>
-                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary); margin: 10px 0;">-15,4%</div>
-                    <p style="color: #666;">Riduzione prelievi (VRT).</p>
-                </article>
+            <article class="data-card">
+                <span class="pillar-tag env">E</span>
+                <h4>Agrofarmaci</h4>
+                <div class="data-value">-40%</div>
+                <p>Riduzione dell'impatto chimico grazie a droni e modelli predittivi.</p>
+            </article>
 
-                <article class="report-card" style="display: block;">
-                    <span style="background: var(--primary); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8rem;">AMBIENTE</span>
-                    <h3 style="margin-top: 15px;">Agrofarmaci</h3>
-                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--primary); margin: 10px 0;">-40%</div>
-                    <p style="color: #666;">Riduzione chimica (IoT).</p>
-                </article>
-
-                <article class="report-card" style="display: block;">
-                    <span style="background: var(--accent); color: white; padding: 5px 10px; border-radius: 4px; font-size: 0.8rem;">SOCIALE</span>
-                    <h3 style="margin-top: 15px;">Capitale Umano</h3>
-                    <div style="font-size: 2.5rem; font-weight: bold; color: var(--accent); margin: 10px 0;">5.240</div>
-                    <p style="color: #666;">Ore di formazione.</p>
-                </article>
-
-            </div>
-            
-            <div style="margin-top: 50px;">
-                <a href="index.html#download-area" class="cta-button">Scarica Report Completo</a>
-            </div>
+            <article class="data-card">
+                <span class="pillar-tag soc">S</span>
+                <h4>Capitale Umano</h4>
+                <div class="data-value">5.200h</div>
+                <p>Ore di formazione dedicate allo sviluppo delle competenze digitali.</p>
+            </article>
         </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Project Work L-31.</p>
-    </footer>
-
+    </main>
+ <footer>
+     <div class="container footer-content">
+            <p>&copy; 2026 BF S.p.A. | Progetto Universitario Informatica Aziendale</p>
+        </div>
+ </footer>
 </body>
 </html>
