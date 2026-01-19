@@ -1,6 +1,6 @@
-/* =========================================
-   1. RESET E VARIABILI GLOBALI
-   ========================================= */
+/* 
+VARIABILI GLOBALI
+*/
 :root {
     --primary: #2d6a4f;    /* Verde foresta */
     --primary-dark: #1b4332;
@@ -25,7 +25,7 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     background-color: var(--white);
-    overflow-x: hidden; /* Previene scroll orizzontale su mobile */
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4 {
@@ -37,9 +37,9 @@ h1, h2, h3, h4 {
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 ul { list-style: none; }
 
-/* =========================================
-   2. LAYOUT E UTILITIES
-   ========================================= */
+/*
+LAYOUT E UTILITIES
+*/
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -48,6 +48,10 @@ ul { list-style: none; }
 
 .section-padding {
     padding: 80px 0;
+}
+
+.text-content {
+    text-align: left;
 }
 
 /* Griglie Responsive */
@@ -89,9 +93,9 @@ ul { list-style: none; }
 }
 .btn-download:hover { background-color: var(--primary-dark); }
 
-/* =========================================
-   3. NAVBAR
-   ========================================= */
+/*
+NAVBAR
+*/
 .navbar {
     position: absolute;
     top: 0;
@@ -144,20 +148,19 @@ ul { list-style: none; }
 #menu-toggle { display: none; }
 .hamburger { display: none; cursor: pointer; z-index: 1001; }
 
-/* =========================================
-   4. HERO SECTIONS (Sfondi diversi)
-   ========================================= */
+/*
+HERO SECTIONS
+*/
 .hero, .hero-small {
     position: relative;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Effetto Parallasse */
+    background-attachment: fixed;
 }
 
 .hero { height: 100vh; }
 .hero-small { height: 50vh; }
 
-/* Immagini di Sfondo Specifiche */
 .bg-home { background-image: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2070'); }
 .bg-mission { background-image: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=2069'); }
 .bg-data { background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070'); }
@@ -178,10 +181,9 @@ ul { list-style: none; }
 .overlay h1 { color: var(--white); font-size: 3.5rem; margin-bottom: 20px; }
 .overlay p { font-size: 1.2rem; margin-bottom: 30px; max-width: 600px; }
 
-/* =========================================
-   5. COMPONENTI (Cards & Box)
-   ========================================= */
-/* Stile Generico Card */
+/*
+COMPONENTI (Cards & Box)
+*/
 .card {
     background: var(--white);
     padding: 30px;
@@ -189,15 +191,14 @@ ul { list-style: none; }
     box-shadow: var(--shadow);
     border: 1px solid #eee;
     transition: transform 0.3s ease;
+    text-align: center; /* Assicuriamo che il contenuto sia centrato */
 }
 
-/* Effetto hover solo se è cliccabile o in griglia */
 .grid-3 .card:hover {
     transform: translateY(-10px);
     border-bottom: 4px solid var(--primary);
 }
 
-/* Box Download (Home) */
 .download-box {
     background: var(--white);
     padding: 40px;
@@ -213,7 +214,7 @@ ul { list-style: none; }
     border-radius: 6px;
     font-size: 0.8rem;
     margin: 20px 0;
-    word-break: break-all; /* Per l'hash SHA-256 */
+    word-break: break-all;
     color: var(--text-light);
     border-left: 3px solid var(--primary);
 }
@@ -225,9 +226,9 @@ ul { list-style: none; }
     color: #999;
 }
 
-/* =========================================
-   6. PAGINA DATA (KPI Cards)
-   ========================================= */
+/* 
+PAGINA DATA (KPI Cards & Tabelle)
+*/
 .pillar-tag {
     display: inline-flex;
     width: 40px;
@@ -240,8 +241,9 @@ ul { list-style: none; }
     margin-bottom: 15px;
 }
 
-.pillar-tag.env { background-color: #27ae60; } /* Verde per Environment */
-.pillar-tag.soc { background-color: #e67e22; } /* Arancio per Social */
+.pillar-tag.env { background-color: #27ae60; }
+.pillar-tag.soc { background-color: #e67e22; }
+.pillar-tag.gov { background-color: #2b2d42; }
 
 .data-value {
     font-size: 3rem;
@@ -258,9 +260,48 @@ ul { list-style: none; }
     color: var(--text-light);
 }
 
-/* =========================================
-   7. FOOTER
-   ========================================= */
+/* Stili per la Tabella Governance */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.gov-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    min-width: 600px; /* Assicura leggibilità su mobile */
+}
+
+.gov-table thead {
+    background-color: var(--text-main);
+    color: var(--white);
+}
+
+.gov-table th, .gov-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.gov-table tr:last-child td {
+    border-bottom: none;
+}
+
+.status-active {
+    color: #27ae60;
+    font-weight: 700;
+    background-color: rgba(39, 174, 96, 0.1);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+/*
+FOOTER
+*/
 footer {
     background-color: var(--primary-dark);
     color: rgba(255,255,255,0.7);
@@ -270,12 +311,11 @@ footer {
     font-size: 0.9rem;
 }
 
-/* =========================================
-   8. MEDIA QUERIES (TABLET & MOBILE)
-   ========================================= */
+/*
+MEDIA QUERIES (TABLET & MOBILE)
+*/
 @media (max-width: 768px) {
     
-    /* Navbar Mobile */
     .navbar { padding: 15px 20px; }
     
     .hamburger {
@@ -302,30 +342,25 @@ footer {
         justify-content: center;
         transform: translateY(-100%);
         transition: transform 0.4s ease-in-out;
-        z-index: 1000; /* Sotto logo e hamburger */
+        z-index: 1000;
     }
 
-    /* Logica apertura menu */
     #menu-toggle:checked ~ .nav-links {
         transform: translateY(0);
     }
 
-    /* Animazione Icona X */
     #menu-toggle:checked ~ .hamburger span:nth-child(1) { transform: rotate(45deg) translate(8px, 6px); }
     #menu-toggle:checked ~ .hamburger span:nth-child(2) { opacity: 0; }
     #menu-toggle:checked ~ .hamburger span:nth-child(3) { transform: rotate(-45deg) translate(7px, -5px); }
 
-    /* Testi e Titoli Mobile */
     .overlay h1 { font-size: 2.5rem; }
     .hero-small { height: 40vh; }
     
-    /* Reset Griglie su Mobile */
     .grid-2, .grid-3 {
         grid-template-columns: 1fr;
         gap: 40px;
     }
 
-    /* Ordine elementi Mobile (Text first) */
     .grid-2 .text-content { order: 1; }
-    .grid-2 .card, .grid-2 .download-box { order: 2; }
+    .grid-2 .card, .grid-2 .download-box, .grid-2 .table-container { order: 2; }
 }
