@@ -1,5 +1,5 @@
-/* 
-VARIABILI GLOBALI
+/*
+RESET E VARIABILI GLOBALI
 */
 :root {
     --primary: #2d6a4f;    /* Verde foresta */
@@ -7,8 +7,8 @@ VARIABILI GLOBALI
     --accent: #d4a373;     /* Oro/Terra */
     --text-main: #2b2d42;  /* Antracite */
     --text-light: #6c757d; /* Grigio testo secondario */
-    --bg-light: #f8f9fa;
-    --white: #ffffff;
+    --bg-light: #f8f9fa; /* beige light */
+    --white: #ffffff; /* bianco */ 
     --shadow: 0 10px 30px rgba(0,0,0,0.08);
     --radius: 12px;
 }
@@ -37,7 +37,7 @@ h1, h2, h3, h4 {
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 ul { list-style: none; }
 
-/*
+/* 
 LAYOUT E UTILITIES
 */
 .container {
@@ -50,11 +50,20 @@ LAYOUT E UTILITIES
     padding: 80px 0;
 }
 
+/*
+ Classe per sezioni a sfondo alternato (grigio chiaro) 
+ */
+.section-alt {
+    background-color: var(--bg-light);
+}
+
 .text-content {
     text-align: left;
 }
 
-/* Griglie Responsive */
+/* 
+Griglie Responsive 
+*/
 .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -68,7 +77,9 @@ LAYOUT E UTILITIES
     gap: 30px;
 }
 
-/* Bottoni */
+/* 
+Bottoni 
+*/
 .btn-main {
     display: inline-block;
     background-color: var(--accent);
@@ -116,7 +127,6 @@ NAVBAR
 }
 .logo span { color: var(--accent); }
 
-/* Menu Desktop */
 .nav-links {
     display: flex;
     gap: 30px;
@@ -144,7 +154,7 @@ NAVBAR
     color: var(--primary-dark);
 }
 
-/* Hamburger (Nascosto su Desktop) */
+/* Hamburger Menu */
 #menu-toggle { display: none; }
 .hamburger { display: none; cursor: pointer; z-index: 1001; }
 
@@ -191,12 +201,21 @@ COMPONENTI (Cards & Box)
     box-shadow: var(--shadow);
     border: 1px solid #eee;
     transition: transform 0.3s ease;
-    text-align: center; /* Assicuriamo che il contenuto sia centrato */
+    text-align: center;
 }
 
 .grid-3 .card:hover {
     transform: translateY(-10px);
     border-bottom: 4px solid var(--primary);
+}
+
+/* 
+Nuova classe per Icone Emoji nelle card 
+*/
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
 }
 
 .download-box {
@@ -226,8 +245,8 @@ COMPONENTI (Cards & Box)
     color: #999;
 }
 
-/* 
-PAGINA DATA (KPI Cards & Tabelle)
+/*
+PAGINA DATA (KPI & Tabelle)
 */
 .pillar-tag {
     display: inline-flex;
@@ -260,7 +279,9 @@ PAGINA DATA (KPI Cards & Tabelle)
     color: var(--text-light);
 }
 
-/* Stili per la Tabella Governance */
+/* 
+Tabelle 
+*/
 .table-container {
     width: 100%;
     overflow-x: auto;
@@ -272,7 +293,7 @@ PAGINA DATA (KPI Cards & Tabelle)
     width: 100%;
     border-collapse: collapse;
     background: var(--white);
-    min-width: 600px; /* Assicura leggibilità su mobile */
+    min-width: 600px;
 }
 
 .gov-table thead {
@@ -286,10 +307,6 @@ PAGINA DATA (KPI Cards & Tabelle)
     border-bottom: 1px solid #eee;
 }
 
-.gov-table tr:last-child td {
-    border-bottom: none;
-}
-
 .status-active {
     color: #27ae60;
     font-weight: 700;
@@ -300,7 +317,7 @@ PAGINA DATA (KPI Cards & Tabelle)
 }
 
 /*
-FOOTER
+FOOTER & RESPONSIVE
 */
 footer {
     background-color: var(--primary-dark);
@@ -311,11 +328,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/*
-MEDIA QUERIES (TABLET & MOBILE)
-*/
 @media (max-width: 768px) {
-    
     .navbar { padding: 15px 20px; }
     
     .hamburger {
@@ -345,10 +358,7 @@ MEDIA QUERIES (TABLET & MOBILE)
         z-index: 1000;
     }
 
-    #menu-toggle:checked ~ .nav-links {
-        transform: translateY(0);
-    }
-
+    #menu-toggle:checked ~ .nav-links { transform: translateY(0); }
     #menu-toggle:checked ~ .hamburger span:nth-child(1) { transform: rotate(45deg) translate(8px, 6px); }
     #menu-toggle:checked ~ .hamburger span:nth-child(2) { opacity: 0; }
     #menu-toggle:checked ~ .hamburger span:nth-child(3) { transform: rotate(-45deg) translate(7px, -5px); }
@@ -356,11 +366,7 @@ MEDIA QUERIES (TABLET & MOBILE)
     .overlay h1 { font-size: 2.5rem; }
     .hero-small { height: 40vh; }
     
-    .grid-2, .grid-3 {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
+    .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 40px; }
     .grid-2 .text-content { order: 1; }
     .grid-2 .card, .grid-2 .download-box, .grid-2 .table-container { order: 2; }
 }
