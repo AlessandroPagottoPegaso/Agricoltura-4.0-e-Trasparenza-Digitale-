@@ -16,7 +16,7 @@ data.html: Dashboard ESG interattiva contenente le "Data Cards" per la visualizz
 
 style.css: Foglio di stile centralizzato con implementazione di variabili per la Brand Identity istituzionale.
 
-assets/: Directory contenente le risorse statiche e la Dichiarazione Non Finanziaria 2023 ufficiale in formato PDF.
+assets/: Directory contenente le risorse statiche e la Dichiarazione Non Finanziaria 2024 ufficiale in formato PDF.
 
 Credenziali Accademiche:
 
@@ -30,4 +30,4 @@ Corso: Informatica per le Aziende Digitali (L-31)
 
 Disclaimer
 
-Il presente progetto è stato realizzato esclusivamente a fini didattici. I dati riportati sono un'estrapolazione didattica della Dichiarazione Non Finanziaria 2023 ufficiale di BF S.p.A., rielaborata per scopi accademici.
+Il presente progetto è stato realizzato esclusivamente a fini didattici. I dati riportati sono un'estrapolazione didattica della Dichiarazione Non Finanziaria 2024 ufficiale di BF S.p.A., rielaborata per scopi accademici.
